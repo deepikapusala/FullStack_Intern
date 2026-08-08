@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semantic HTML Blog</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Tech Learning Blog</h1>
+
+        <nav aria-label="Main Navigation">
+            <ul>
+                <li><a href="#article">Article</a></li>
+                <li><a href="#tips">Tips</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <article id="article">
+
+            <header>
+                <h2>Why Semantic HTML Matters</h2>
+
+                <p>
+                    Published on
+                    <time datetime="2026-08-04">August 4, 2026</time>
+                </p>
+            </header>
+
+            <figure>
+                <img
+                    src="https://via.placeholder.com/600x300"
+                    alt="Laptop displaying HTML code on a screen">
+                <figcaption>
+                    Writing semantic HTML improves accessibility and readability.
+                </figcaption>
+            </figure>
+
+            <section>
+
+                <h3>What is Semantic HTML?</h3>
+
+                <p>
+                    Semantic HTML uses meaningful elements that describe the purpose
+                    of the content instead of using generic div elements everywhere.
+                </p>
+
+            </section>
+
+            <section>
+
+                <h3>Benefits</h3>
+
+                <ul>
+                    <li>Improves accessibility</li>
+                    <li>Helps search engines understand the page</li>
+                    <li>Makes code easier to maintain</li>
+                    <li>Improves readability for developers</li>
+                </ul>
+
+            </section>
+
+        </article>
+
+        <aside id="tips">
+
+            <h2>Quick Tips</h2>
+
+            <ul>
+                <li>Use only one &lt;h1&gt; per page.</li>
+                <li>Always write meaningful alt text for images.</li>
+                <li>Associate every input with a label.</li>
+                <li>Prefer semantic elements over divs.</li>
+            </ul>
+
+        </aside>
+
+        <section id="contact">
+
+            <h2>Contact Us</h2>
+
+            <form action="#" method="post">
+
+                <fieldset>
+
+                    <legend>Contact Information</legend>
+
+                    <p>
+                        <label for="name">Full Name</label><br>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            autocomplete="name">
+                    </p>
+
+                    <p>
+                        <label for="email">Email Address</label><br>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            autocomplete="email">
+                    </p>
+
+                    <p>
+                        <label for="message">Message</label><br>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            required></textarea>
+                    </p>
+
+                    <button type="button">
+                        Send Message
+                    </button>
+
+                </fieldset>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>&copy; 2026 Tech Learning Blog. All Rights Reserved.</p>
+
+    </footer>
+
+</body>
+
+</html>
