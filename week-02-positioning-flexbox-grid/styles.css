@@ -1,0 +1,314 @@
+* {
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    color: #222;
+    background: #f4f4f4;
+}
+
+.page-header {
+  background: #1f2937;
+  color: white;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.page-header p {
+  color: #cbd5e1;
+  margin-top: 6px;
+}
+
+.page-nav {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 12px;
+  background: #111827;
+}
+
+.page-nav a {
+  color: #93c5fd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.page-nav a:hover {
+  text-decoration: underline;
+}
+
+.demo-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.demo-section h2 {
+  margin-bottom: 6px;
+}
+
+.note {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+/* shared look for the header/sidebar/content/footer boxes
+   so the three layouts are visually identical - only the
+   layout technique changes */
+.l-header, .l-sidebar, .l-content, .l-footer {
+  padding: 16px;
+  border-radius: 6px;
+}
+
+.l-header {
+  background: #2563eb;
+  color: white;
+}
+
+.l-sidebar {
+  background: #fbbf24;
+}
+
+.l-content {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.l-footer {
+  background: #374151;
+  color: white;
+}
+
+/* =====================================================
+   1. FLOAT LAYOUT
+   sidebar floats left, content is pushed over with margin,
+   footer has to "clear" the floats or it climbs up underneath
+   ===================================================== */
+.float-layout .l-header {
+  margin-bottom: 10px;
+}
+
+.float-layout .l-sidebar {
+  float: left;
+  width: 200px;
+}
+
+.float-layout .l-content {
+  margin-left: 216px; /* 200px sidebar + gap, has to be hand calculated */
+  min-height: 150px;
+}
+
+.float-layout .l-footer {
+  clear: both; /* without this the footer sits under the floated sidebar */
+  margin-top: 10px;
+}
+
+/* =====================================================
+   2. FLEXBOX LAYOUT
+   outer wrapper = column flex (header, middle, footer)
+   inner .flex-middle = row flex (sidebar, content)
+   ===================================================== */
+.flex-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.flex-middle {
+  display: flex;
+  gap: 10px;
+  /* main axis here is horizontal (row), cross axis is vertical */
+}
+
+.flex-middle .l-sidebar {
+  flex: 0 0 200px; /* grow:0 shrink:0 basis:200px - sidebar stays fixed width */
+}
+
+.flex-middle .l-content {
+  flex: 1 1 auto; /* grow:1 so it eats up all the leftover space */
+  min-height: 150px;
+}
+
+/* =====================================================
+   3. GRID LAYOUT
+   one grid-template-areas call defines the whole shape
+   ===================================================== */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* sidebar fixed, content = fr unit (flexible track) */
+  grid-template-rows: auto 1fr auto; /* header/footer size to content, middle row grows */
+  grid-template-areas:
+    "header  header"
+    "sidebar content"
+    "footer  footer";
+  gap: 10px;
+  min-height: 220px;
+}
+
+.grid-layout .l-header  { grid-area: header; }
+.grid-layout .l-sidebar { grid-area: sidebar; }
+.grid-layout .l-content { grid-area: content; }
+.grid-layout .l-footer  { grid-area: footer; }
+
+/* =====================================================
+   4. POSITION PROPERTY DEMO
+   ===================================================== */
+.position-box {
+  padding: 12px;
+  background: #10b981;
+  color: white;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.static-box {
+  position: static; /* default, ignores top/left/etc */
+}
+
+.position-parent {
+  position: relative; /* this becomes the "nearest positioned ancestor" for the absolute box */
+  background: #e5e7eb;
+  padding: 40px 16px 16px;
+  min-height: 120px;
+  margin-bottom: 20px;
+}
+
+.relative-box {
+  position: relative;
+  top: 8px;
+  left: 8px; /* nudged from where it would normally sit, but original space is preserved */
+  background: #3b82f6;
+}
+
+.absolute-box {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* pulled completely out of flow, positioned against .position-parent */
+  background: #ef4444;
+  margin: 0;
+}
+
+.sticky-scroll-container {
+  height: 220px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 0 12px 12px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sticky-box {
+  position: sticky;
+  top: 0;
+  background: #8b5cf6;
+  color: white;
+  padding: 10px;
+  z-index: 2;
+}
+
+.sticky-scroll-container p {
+  padding: 20px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.fixed-box {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #111827;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  max-width: 200px;
+  z-index: 50;
+}
+
+/* =====================================================
+   5. STACKING CONTEXT / Z-INDEX DEMO
+   ===================================================== */
+.stack-wrapper {
+  position: relative;
+  height: 160px;
+  background: #e5e7eb;
+}
+
+.stack-box {
+  position: absolute;
+  padding: 14px;
+  color: white;
+  border-radius: 6px;
+  width: 220px;
+  font-size: 13px;
+}
+
+.box-a {
+  top: 20px;
+  left: 20px;
+  background: #2563eb;
+  z-index: 1;
+}
+
+.box-b {
+  top: 45px;
+  left: 60px;
+  background: #16a34a;
+  z-index: 2; /* higher number, sits above box-a normally */
+}
+
+/* this parent creates a NEW stacking context because of transform,
+   so everything inside it stacks as a group above box-a and box-b,
+   no matter what z-index its child has */
+.stack-context-parent {
+  position: absolute;
+  top: 70px;
+  left: 100px;
+  transform: translateZ(0);
+  z-index: 0;
+}
+
+.box-c {
+  position: relative;
+  top: 0;
+  left: 0;
+  background: #dc2626;
+  z-index: 1; /* lower than box-b's 2, but wins anyway - different stacking context */
+}
+
+/* =====================================================
+   6. CARD GALLERY - responsive grid, no media queries
+   ===================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  color: #2563eb;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 20px;
+  color: #777;
+  font-size: 13px;
+}
