@@ -1,16 +1,17 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Layout Comparison - Float vs Flexbox vs Grid</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <header class="page-header">
     <h1>Layout Comparison + Card Gallery</h1>
-    <p>Same holy-grail layout built 3 different ways, plus a responsive card grid</p>
   </header>
 
   <nav class="page-nav">
@@ -25,65 +26,106 @@
   <!-- ============================================= -->
   <!-- 1. FLOAT VERSION (old school, just for context) -->
   <!-- ============================================= -->
-  <section id="float-section" class="demo-section">
-    <h2>1. Float Layout (legacy way)</h2>
-    <p class="note">Sidebar floats left, content gets a margin to make room, footer needs "clear" or it rides up under the floats.</p>
+  <!-- ============================================= -->
+  <!-- 1. FLOAT DEMO -->
+  <!-- ============================================= -->
 
-    <div class="layout float-layout">
-      <header class="l-header">Header</header>
-      <aside class="l-sidebar">Sidebar</aside>
-      <main class="l-content">
-        <h3>Main content</h3>
-        <p>This whole layout depends on floats pulling elements out of normal flow. Clearing has to be done manually or the footer breaks.</p>
-      </main>
-      <footer class="l-footer">Footer</footer>
+  <section id="float-section" class="demo-section">
+
+    <h2>1. Float</h2>
+
+
+
+    <div class="float-demo">
+
+      <img src="float-image.jpg" alt="Demo image" class="float-image">
+      <p>
+        CSS float is used to move an element to the left or right
+        of its container. Other content can then flow around the
+        floated element. This was commonly used for wrapping text
+        around images before modern layout systems like Flexbox
+        and Grid became popular.
+
+        Try changing the image from float: left to float: right
+        in the CSS and see how the paragraph moves around the image.
+
+        The image can be floated to the left or right, and the text
+        will automatically flow around the available space.
+
+        This is one of the easiest ways to understand what the
+        float property actually does.floated element. This was commonly used for wrapping text
+        around images before modern layout systems like Flexbox
+        and Grid became popular.
+
+        Try changing the image from float: left to float: right
+        in the CSS and see how the paragraph moves around the image.
+
+        The image can be floated to the left or right, and the text
+        will automatically flow around the available space.
+
+        This is one of the easiest ways to understand what the
+        float property actually does.
+      </p>
+
     </div>
+
   </section>
 
   <!-- ============================================= -->
   <!-- 2. FLEXBOX VERSION -->
   <!-- ============================================= -->
-  <section id="flex-section" class="demo-section">
-    <h2>2. Flexbox Layout</h2>
-    <p class="note">Outer wrapper is a column flex container (header / middle row / footer). The middle row is itself a flex container with sidebar + content.</p>
+  <h2>2. Flexbox</h2>
 
-    <div class="layout flex-layout">
-      <header class="l-header">Header</header>
-      <div class="flex-middle">
-        <aside class="l-sidebar">Sidebar</aside>
-        <main class="l-content">
-          <h3>Main content</h3>
-          <p>Content uses flex-grow to fill the remaining space. Sidebar has a fixed basis and flex-shrink:0 so it doesn't get squished.</p>
-        </main>
-      </div>
-      <footer class="l-footer">Footer</footer>
+<div class="flex-layout">
+
+    <header>Header</header>
+
+    <div class="flex-boxes">
+        <div>Box 1</div>
+        <div>Box 2</div>
+        <div>Box 3</div>
+        <div>Box 4</div>
+        <div>Box 5</div>
+        <div>Box 6</div>
     </div>
-  </section>
+
+    <footer>Footer</footer>
+
+</div>
 
   <!-- ============================================= -->
   <!-- 3. GRID VERSION -->
   <!-- ============================================= -->
-  <section id="grid-section" class="demo-section">
-    <h2>3. Grid Layout</h2>
-    <p class="note">One grid-template-areas declaration handles the whole layout in one shot - no wrapper divs needed.</p>
+  <h2>3. Grid</h2>
 
-    <div class="layout grid-layout">
-      <header class="l-header">Header</header>
-      <aside class="l-sidebar">Sidebar</aside>
-      <main class="l-content">
-        <h3>Main content</h3>
-        <p>Named grid areas make this really readable - you can literally see the layout shape in the CSS.</p>
-      </main>
-      <footer class="l-footer">Footer</footer>
+<div class="grid-layout">
+
+    <header>Header</header>
+
+    <div class="grid-boxes">
+        <div>Box 1</div>
+        <div>Box 2</div>
+        <div>Box 3</div>
+        <div>Box 4</div>
+        <div>Box 5</div>
+        <div>Box 6</div>
     </div>
-  </section>
+
+    <footer>Footer</footer>
+
+</div>
 
   <!-- ============================================= -->
   <!-- POSITION PROPERTY DEMO -->
   <!-- ============================================= -->
   <section id="position-section" class="demo-section">
     <h2>4. Position property</h2>
-    <p class="note">static (default) &rarr; relative (nudged, still takes up original space) &rarr; absolute (removed from flow, positioned against nearest positioned ancestor) &rarr; fixed (stuck to viewport) &rarr; sticky (toggles between relative and fixed based on scroll)</p>
+    <p class="note">static (default) <br>
+      relative (nudged, still takes up original space) </br>
+      absolute (removed from flow, positioned against nearest positioned ancestor) <br>
+      fixed (stuck to viewport) <br>
+      sticky (toggles between relative and fixed based on scroll)
+    </p>
 
     <div class="position-box static-box">static</div>
 
@@ -108,36 +150,53 @@
   <!-- ============================================= -->
   <!-- STACKING CONTEXT / Z-INDEX DEMO -->
   <!-- ============================================= -->
-  <section id="stacking-section" class="demo-section">
-    <h2>5. Stacking context &amp; z-index</h2>
-    <p class="note">z-index only compares elements within the same stacking context. The box below has a lower z-index number but wins because its parent creates its own stacking context (via transform) that sits on top.</p>
-
-    <div class="stack-wrapper">
-      <div class="stack-box box-a">A: z-index 1</div>
-      <div class="stack-box box-b">B: z-index 2</div>
-
-      <div class="stack-context-parent">
-        <div class="stack-box box-c">C: z-index 1 (inside a parent that has its own stacking context)</div>
-      </div>
-    </div>
-  </section>
+  <h2 id="position-section" class="demo-section">5. Stacking & Z-index</h2>
+<div class="stack-wrapper">
+  <div class="stack-box box-a">A: z-index 1</div>
+  <div class="stack-box box-b">B: z-index 2</div>
+</div>
 
   <!-- ============================================= -->
   <!-- CARD GALLERY - CSS GRID auto-fit / minmax -->
   <!-- ============================================= -->
   <section id="gallery-section" class="demo-section">
     <h2>6. Card Gallery (CSS Grid, auto-fit + minmax)</h2>
-    <p class="note">No media queries needed - the grid figures out how many columns fit on its own. Resize the browser to see it reflow.</p>
+    <p class="note">No media queries needed - the grid figures out how many columns fit on its own. Resize the browser
+      to see it reflow.</p>
 
     <div class="card-grid">
-      <div class="card"><h3>Card 1</h3><p>Grid tracks are created implicitly here since we never said how many columns.</p></div>
-      <div class="card"><h3>Card 2</h3><p>minmax(220px, 1fr) means each card is at least 220px, but stretches to fill leftover space.</p></div>
-      <div class="card"><h3>Card 3</h3><p>auto-fit collapses empty tracks, auto-fill would leave them (invisible) taking up space.</p></div>
-      <div class="card"><h3>Card 4</h3><p>Just a filler card to show the wrap behaviour.</p></div>
-      <div class="card"><h3>Card 5</h3><p>Another one.</p></div>
-      <div class="card"><h3>Card 6</h3><p>And another.</p></div>
-      <div class="card"><h3>Card 7</h3><p>Almost done.</p></div>
-      <div class="card"><h3>Card 8</h3><p>Last card in the gallery.</p></div>
+      <div class="card">
+        <h3>Card 1</h3>
+        <p>Grid tracks are created implicitly here since we never said how many columns.</p>
+      </div>
+      <div class="card">
+        <h3>Card 2</h3>
+        <p>minmax(220px, 1fr) means each card is at least 220px, but stretches to fill leftover space.</p>
+      </div>
+      <div class="card">
+        <h3>Card 3</h3>
+        <p>auto-fit collapses empty tracks, auto-fill would leave them (invisible) taking up space.</p>
+      </div>
+      <div class="card">
+        <h3>Card 4</h3>
+        <p>Just a filler card to show the wrap behaviour.</p>
+      </div>
+      <div class="card">
+        <h3>Card 5</h3>
+        <p>Another one.</p>
+      </div>
+      <div class="card">
+        <h3>Card 6</h3>
+        <p>And another.</p>
+      </div>
+      <div class="card">
+        <h3>Card 7</h3>
+        <p>Almost done.</p>
+      </div>
+      <div class="card">
+        <h3>Card 8</h3>
+        <p>Last card in the gallery.</p>
+      </div>
     </div>
   </section>
 
@@ -146,4 +205,5 @@
   </footer>
 
 </body>
+
 </html>
