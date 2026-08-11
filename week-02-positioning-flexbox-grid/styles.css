@@ -1,0 +1,302 @@
+* {
+  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+}
+.note {
+    text-align: left;
+    width: fit-content;
+    padding: 10px;
+}
+body {
+    color: #222;
+    background: #f4f4f4;
+}
+
+.page-header {
+  background: #1f2937;
+  color: white;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.page-nav {
+  display: flex;
+  gap: 100px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  background: #111827;
+}
+
+.page-nav a {
+  color: white;
+  text-decoration: underline wavy pink;
+  font-size: 14px;
+}
+
+.demo-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+
+
+/* shared look for the header/sidebar/content/footer boxes
+   so the three layouts are visually identical - only the
+   layout technique changes */
+.l-header, .l-sidebar, .l-content, .l-footer {
+  padding: 16px;
+}
+
+.l-header {
+  background: #2563eb;
+  color: white;
+}
+
+.l-sidebar {
+  background: #fbbf24;
+}
+
+.l-content {
+  background: white;
+  border: 1px solid #ddd;
+}
+
+.l-footer {
+  background: #374151;
+  color: white;
+}
+
+/* =====================================================
+   1. FLOAT LAYOUT
+   sidebar floats left, content is pushed over with margin,
+   footer has to "clear" the floats or it climbs up underneath
+   ===================================================== */
+/* ============================= */
+/* 1. FLOAT DEMO */
+/* ============================= */
+
+.float-demo {
+  background: #87CEEB;
+  padding: 20px;
+  min-height: 350px;
+}
+
+.float-image {
+  float: right;
+  width: 300px;
+  height: 300px;
+  border: 1px solid red;
+  object-fit: cover;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+/* =====================================================
+   2. FLEXBOX LAYOUT
+   outer wrapper = column flex (header, middle, footer)
+   inner .flex-middle = row flex (sidebar, content)
+   ===================================================== */
+.flex-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flex-boxes {
+    display: flex;
+    gap: 10px;
+}
+
+.flex-boxes div {
+    flex: 1;
+    padding: 30px;
+    background: orange;
+    text-align: center;
+}
+
+.flex-layout header {
+    padding: 20px;
+    background: blue;
+    color: white;
+}
+
+.flex-layout footer {
+    padding: 20px;
+    background: darkgray;
+    color: white;
+}
+
+/* =====================================================
+   3. GRID LAYOUT
+   one grid-template-areas call defines the whole shape
+   ===================================================== */
+.grid-layout {
+    display: grid;
+    gap: 10px;
+}
+
+.grid-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.grid-boxes div {
+    padding: 30px;
+    background: orange;
+    text-align: center;
+}
+
+.grid-layout header {
+    padding: 20px;
+    background: blue;
+    color: white;
+}
+
+.grid-layout footer {
+    padding: 20px;
+    background: darkgray;
+    color: white;
+}
+
+/* =====================================================
+   4. POSITION PROPERTY DEMO
+   ===================================================== */
+.position-box {
+  padding: 12px;
+  background: #10b981;
+  color: white;
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.static-box {
+  position: static; /* default, ignores top/left/etc */
+}
+
+.position-parent {
+  position: relative; /* this becomes the "nearest positioned ancestor" for the absolute box */
+  background: #e5e7eb;
+  padding: 40px 16px 16px;
+  min-height: 120px;
+  margin-bottom: 20px;
+}
+
+.relative-box {
+  position: relative;
+  top: 10px;
+  left: 30px; /* nudged from where it would normally sit, but original space is preserved */
+  background: #3b82f6;
+  /* z-index:1; */
+}
+
+.absolute-box {
+  position: absolute;
+  top: 5px;
+  left: 10px; /* pulled completely out of flow, positioned against .position-parent */
+  background: #ef4444;
+  /* z-index:2; */
+}
+
+.sticky-scroll-container {
+  height: 220px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 0 12px 12px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.sticky-box {
+  position: sticky;
+  top: 0;
+  background: #8b5cf6;
+  color: white;
+  padding: 10px;
+  z-index: 2;
+}
+
+.sticky-scroll-container p {
+  padding: 20px 0;
+  border-bottom: 1px dashed #ccc;
+}
+
+.fixed-box {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #111827;
+  color: white;
+  padding: 10px;
+  font-size: 13px;
+  max-width: 2000px;
+  z-index: 50;
+}
+
+/* =====================================================
+   5. Z-INDEX DEMO
+   ===================================================== */
+
+.stack-wrapper {
+  position: relative;
+  height: 160px;
+  background: #e5e7eb;
+}
+
+.stack-box {
+  position: absolute;
+  padding: 14px;
+  color: white;
+  width: 220px;
+  font-size: 13px;
+}
+
+.box-a {
+  top: 75px;
+  left: 20px;
+  background: #2563eb;
+  z-index: 1;
+}
+
+.box-b {
+  top: 45px;
+  left: 60px;
+  background: #16a34a;
+  z-index: 2;
+}
+
+/* =====================================================
+   6. CARD GALLERY - responsive grid, no media queries
+   ===================================================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2px;
+}
+
+.card {
+  background: pink;
+  border: 1px solid #ddd;
+  padding: 16px;
+}
+
+.card h3 {
+  margin-bottom: 8px;
+  color: red;
+}
+
+.card p {
+  font-size: 14px;
+  color: #000;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 20px;
+  color: #555;
+  background: yellow;
+  font-size: 30px;
+}
