@@ -45,9 +45,8 @@ section {
     margin-bottom: 2.5rem;
 }
 
-
 /* =====================================================
-   3. NAVBAR
+   NAVBAR
 ===================================================== */
 
 .navbar {
@@ -63,27 +62,88 @@ section {
 
 .navbar__container {
     max-width: 1200px;
-    margin: auto;
-
     min-height: 65px;
+    margin: auto;
     padding: 0 1.25rem;
 
     display: flex;
     align-items: center;
-    gap: 1rem;
+}
+
+
+/* DP */
+
+.navbar__logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+/* Desktop / Tablet links */
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .navbar__link {
     padding: 0.5rem;
     font-size: 0.95rem;
 }
+/* Mobile menu */
 
-.navbar__link--logo {
-    margin-right: auto;
-    font-size: 1.4rem;
-    font-weight: bold;
+.navbar__menu {
+    display: none;
+}
+@media print{
+    .navbar{
+        display: none;
+    }
+}
+.navbar__menu-button {
+    cursor: pointer;
+    list-style: none;
+
+    font-size: 1.6rem;
 }
 
+.navbar__menu-button::-webkit-details-marker {
+    display: none;
+}
+
+.navbar__mobile-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+
+    width: 100%;
+
+    background-color: #111;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar__mobile-link {
+    padding: 1rem 1.25rem;
+
+    border-top: 1px solid #333;
+}
+/* =====================================================
+   MOBILE NAVBAR
+===================================================== */
+
+@media (max-width: 767px) {
+
+    .navbar__links {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: block;
+    }
+}
 
 /* =====================================================
    4. HERO
@@ -149,22 +209,20 @@ section {
 
 .hero__image-container {
     flex: 1;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero__picture {
-    width: 100%;
+    width: 90%;
 }
 
 .hero__image {
     width: 100%;
     max-height: 500px;
-    object-fit: cover;
+    object-fit: cover;    
 }
-
 
 /* =====================================================
    5. ABOUT
@@ -200,31 +258,25 @@ section {
     color: #555;
 }
 
-
 /* =====================================================
    6. SKILLS
    CSS GRID
 ===================================================== */
-
 .skills {
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-
     margin-top: 1.5rem;
 }
 
 .skills__item {
     padding: 0.8rem;
     text-align: center;
-
     border: 1px solid #ccc;
     background-color: #f7f7f7;
 
     font-size: 0.95rem;
 }
-
 
 /* =====================================================
    7. EXPERIENCE
@@ -245,9 +297,7 @@ section {
 
 .experience__card {
     flex: 1;
-
     padding: 1.5rem;
-
     border: 1px solid #ccc;
     background-color: #f8f8f8;
 }
@@ -270,12 +320,9 @@ section {
 .experience__description {
     color: #555;
 }
-
-
 /* =====================================================
    8. PROJECTS
 ===================================================== */
-
 .projects {
     background-color: #eeeeee;
 }
@@ -283,7 +330,6 @@ section {
 .projects__list {
     max-width: 1200px;
     margin: auto;
-
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -291,10 +337,8 @@ section {
 
 .projects__card {
     flex: 1;
-
     background-color: white;
     border: 1px solid #ccc;
-
     overflow: hidden;
 }
 
@@ -305,7 +349,6 @@ section {
 .projects__image {
     width: 100%;
     height: 220px;
-
     object-fit: cover;
 }
 
@@ -327,8 +370,6 @@ section {
     font-weight: bold;
     text-decoration: underline;
 }
-
-
 /* =====================================================
    9. ACHIEVEMENTS
 ===================================================== */
@@ -340,7 +381,6 @@ section {
 .achievements__list {
     max-width: 1200px;
     margin: auto;
-
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -348,12 +388,9 @@ section {
 
 .achievements__card {
     flex: 1;
-
     padding: 2rem;
-
     border: 1px solid #ccc;
     background-color: #f8f8f8;
-
     text-align: center;
 }
 
@@ -365,8 +402,6 @@ section {
 .achievements__text {
     color: #555;
 }
-
-
 /* =====================================================
    10. CONTACT
 ===================================================== */
@@ -384,7 +419,6 @@ section {
 .contact__form {
     max-width: 1000px;
     margin: auto;
-
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -393,10 +427,8 @@ section {
 .contact__details,
 .contact__message {
     flex: 1;
-
     background-color: white;
     padding: 1.5rem;
-
     border: 1px solid #ccc;
 }
 
@@ -432,20 +464,16 @@ section {
 
 .contact__button {
     padding: 0.8rem 1.4rem;
-
     background-color: #111;
     color: white;
-
     border: 2px solid #111;
     font: inherit;
     cursor: pointer;
 }
 
-
 /* =====================================================
    11. FOOTER
 ===================================================== */
-
 .footer {
     background-color: #111;
     color: white;
@@ -455,7 +483,6 @@ section {
 .footer__content {
     max-width: 1200px;
     margin: auto;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -469,28 +496,21 @@ section {
 .footer__copyright {
     font-size: 0.9rem;
 }
-
-
 /* =====================================================
    12. TABLET
    768px and above
 ===================================================== */
-
 @media (min-width: 768px) {
-
     /* NAVBAR */
-
     .navbar__container {
         gap: 2rem;
     }
 
 
     /* HERO */
-
     .hero {
         flex-direction: row;
         align-items: stretch;
-
         padding: 90px 3rem 3rem;
     }
 
@@ -502,8 +522,6 @@ section {
     .hero__image-container {
         flex: 0 0 40%;
     }
-
-
     /* ABOUT */
 
     .about__content {
@@ -518,26 +536,19 @@ section {
     .skills {
         grid-template-columns: repeat(3, 1fr);
     }
-
-
     /* EXPERIENCE */
 
     .experience__list {
         flex-direction: row;
     }
-
-
     /* PROJECTS */
-
     .projects__list {
         flex-direction: row;
         flex-wrap: wrap;
     }
-
     .projects__card {
         flex: 0 0 calc(50% - 0.75rem);
     }
-
 
     /* ACHIEVEMENTS */
 
@@ -545,9 +556,7 @@ section {
         flex-direction: row;
     }
 
-
     /* CONTACT */
-
     .contact__form {
         flex-direction: row;
     }
@@ -559,18 +568,15 @@ section {
 
 }
 
-
 /* =====================================================
    13. DESKTOP
    1200px and above
 ===================================================== */
 
 @media (min-width: 1200px) {
-
     section {
         padding: 6rem 2rem;
     }
-
 
     /* NAVBAR */
 
@@ -578,8 +584,6 @@ section {
         padding: 0;
         gap: 2.5rem;
     }
-
-
     /* HERO */
 
     .hero {
@@ -602,19 +606,12 @@ section {
     .skills {
         grid-template-columns: repeat(4, 1fr);
     }
-
-
     /* PROJECTS */
-
     .projects__card {
         flex: 1;
     }
-
-
     /* CONTACT */
-
     .contact__form {
         gap: 3rem;
     }
-
 }

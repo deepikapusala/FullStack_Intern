@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Deepika Pusala - AI and Full Stack Developer Portfolio">
     <title>Deepika Pusala | AI & Full Stack Developer</title>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-
     <!-- =========================
          NAVIGATION
     ========================== -->
+<header class="navbar">
 
-    <header class="navbar">
+    <nav class="navbar__container">
 
-        <nav class="navbar__container">
+        <a href="#home" class="navbar__logo">
+            DP
+        </a>
 
-            <a href="#home" class="navbar__link navbar__link--logo">
-                DP
-            </a>
+        <!-- Desktop / Tablet Navigation -->
+        <div class="navbar__links">
 
             <a href="#about" class="navbar__link">
                 About
@@ -44,11 +43,39 @@
                 Contact
             </a>
 
-        </nav>
-
-    </header>
+        </div>
 
 
+        <!-- Mobile Navigation -->
+        <details class="navbar__menu">
+            <summary class="navbar__menu-button">
+                ☰
+            </summary>
+            <div class="navbar__mobile-links">
+                <a href="#about" class="navbar__mobile-link">
+                    About
+                </a>
+
+                <a href="#experience" class="navbar__mobile-link">
+                    Experience
+                </a>
+
+                <a href="#projects" class="navbar__mobile-link">
+                    Projects
+                </a>
+
+                <a href="#achievements" class="navbar__mobile-link">
+                    Achievements
+                </a>
+
+                <a href="#contact" class="navbar__mobile-link">
+                    Contact
+                </a>
+
+            </div>
+        </details>
+    </nav>
+</header>
     <main>
 
         <!-- =========================
@@ -64,7 +91,7 @@
                 </p>
 
                 <h1 class="hero__title">
-                    AI & Full Stack Developer
+                    Full Stack Developer
                 </h1>
 
                 <p class="hero__description">
@@ -85,8 +112,6 @@
                 </div>
 
             </div>
-
-
             <div class="hero__image-container">
 
                 <picture class="hero__picture">
