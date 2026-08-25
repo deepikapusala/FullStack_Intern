@@ -1,10 +1,9 @@
-# Mutable Default Argument Bug
-
+# Mutable Default Arguments
 def f(x, cache=[]):
     cache.append(x)
     return cache
 
-print("Before fixing:")
+print("Before fixing:") 
 print(f(10))
 print(f(20))
 print(f(30))

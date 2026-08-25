@@ -3,14 +3,9 @@ def create_counter():
     def counter():
         nonlocal count
         count += 1
-        return count
-
+        return count 
     return counter
-
-
 counter = create_counter()
-
 print(counter())
 print(counter())
 print(counter())
-
