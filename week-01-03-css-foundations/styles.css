@@ -1,0 +1,137 @@
+
+/* 
+
+header {
+    width: 100%;
+    padding: 40px;
+    border: 5px solid navy;
+    background-color: lightblue;
+    margin-bottom: 40px;
+}
+
+article {
+    width: 500px;
+    padding: 30px;
+    border: 3px solid darkgreen;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+aside {
+    width: 500px;
+    padding: 30px;
+    border: 3px solid darkorange;
+    margin-top: 50px;
+}
+
+fieldset {
+    width: 400px;
+    padding: 25px;
+    border: 4px solid purple;
+    margin-top: 20px;
+}
+
+
+
+button {
+    background-color: gray;
+}
+
+.send-btn {
+    background-color: yellow;
+}
+
+#contact button {
+    background-color: green;
+}
+
+section button {
+    background-color: pink;
+}
+
+form fieldset button {
+    background-color: orange;
+}
+
+#contact .send-btn {
+    background-color: red;
+}
+
+button[type="submit"] {
+    background-color: cyan;
+}
+
+fieldset button {
+    background-color: brown;
+}
+
+ */
+
+ /*THE CORRECT ONE*/
+* {
+    box-sizing: border-box;
+}
+
+body{
+   
+}
+
+header {
+    width: 100%;
+    padding: 40px;
+    border: 5px solid navy;
+    background-color: lightblue;
+    margin-bottom: 40px;
+}
+
+article {
+    width: 500px;
+    padding: 30px;
+    border: 3px solid darkgreen;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+aside {
+    width: 500px;
+    padding: 30px;
+    border: 3px solid darkorange;
+    margin-top: 50px;
+}
+
+fieldset {
+    width: 400px;
+    padding: 25px;
+    border: 4px solid purple;
+    margin-top: 20px;
+}
+
+/* ============================================
+   SPECIFICITY CONFLICT ZONE — unchanged
+   (kept intentionally to demonstrate specificity)
+   ============================================ */
+
+button { 
+    background-color: gray; 
+}
+.send-btn { 
+    background-color: yellow; 
+}
+#contact button { 
+    background-color: green; 
+}
+section button { 
+    background-color: pink; 
+}
+form fieldset button { 
+    background-color: orange; 
+}
+#contact .send-btn { 
+    background-color: red; 
+}
+button[type="submit"] { 
+    background-color: cyan; 
+}
+fieldset button { 
+    background-color: brown; 
+}

@@ -1,0 +1,617 @@
+/* =====================================================
+   1. BASIC RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f7f7f7;
+    color: #222;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =====================================================
+   2. COMMON SECTION STYLES
+===================================================== */
+
+section {
+    padding: 5rem 1.25rem;
+    scroll-margin-top: 70px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 2.5rem;
+}
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background-color: #111;
+    color: white;
+}
+
+.navbar__container {
+    max-width: 1200px;
+    min-height: 65px;
+    margin: auto;
+    padding: 0 1.25rem;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* DP */
+
+.navbar__logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+/* Desktop / Tablet links */
+
+.navbar__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.navbar__link {
+    padding: 0.5rem;
+    font-size: 0.95rem;
+}
+/* Mobile menu */
+
+.navbar__menu {
+    display: none;
+}
+@media print{
+    .navbar{
+        display: none;
+    }
+}
+.navbar__menu-button {
+    cursor: pointer;
+    list-style: none;
+
+    font-size: 1.6rem;
+}
+
+.navbar__menu-button::-webkit-details-marker {
+    display: none;
+}
+
+.navbar__mobile-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+
+    width: 100%;
+
+    background-color: #111;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar__mobile-link {
+    padding: 1rem 1.25rem;
+
+    border-top: 1px solid #333;
+}
+/* =====================================================
+   MOBILE NAVBAR
+===================================================== */
+
+@media (max-width: 767px) {
+
+    .navbar__links {
+        display: none;
+    }
+
+    .navbar__menu {
+        display: block;
+    }
+}
+
+/* =====================================================
+   4. HERO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+    padding-top: 90px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    background-color: white;
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex: 1;
+}
+
+.hero__greeting {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero__title {
+    font-size: clamp(2.2rem, 8vw, 4.5rem);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero__description {
+    max-width: 600px;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.hero__button {
+    display: inline-block;
+    padding: 0.8rem 1.4rem;
+
+    background-color: #111;
+    color: white;
+
+    border: 2px solid #111;
+}
+
+.hero__button--secondary {
+    background-color: transparent;
+    color: #111;
+}
+
+.hero__image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero__picture {
+    width: 90%;
+}
+
+.hero__image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;    
+}
+
+/* =====================================================
+   5. ABOUT
+===================================================== */
+
+.about {
+    background-color: #eeeeee;
+}
+
+.about__content {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.about__info,
+.about__skills {
+    background-color: white;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+}
+
+.about__subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.about__text {
+    margin-top: 1rem;
+    color: #555;
+}
+
+/* =====================================================
+   6. SKILLS
+   CSS GRID
+===================================================== */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.skills__item {
+    padding: 0.8rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+
+    font-size: 0.95rem;
+}
+
+/* =====================================================
+   7. EXPERIENCE
+===================================================== */
+
+.experience {
+    background-color: white;
+}
+
+.experience__list {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.experience__card {
+    flex: 1;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+}
+
+.experience__title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.experience__company {
+    font-weight: bold;
+}
+
+.experience__duration {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.5rem 0 1rem;
+}
+
+.experience__description {
+    color: #555;
+}
+/* =====================================================
+   8. PROJECTS
+===================================================== */
+.projects {
+    background-color: #eeeeee;
+}
+
+.projects__list {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.projects__card {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    overflow: hidden;
+}
+
+.projects__picture {
+    display: block;
+}
+
+.projects__image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.projects__content {
+    padding: 1.5rem;
+}
+
+.projects__title {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+}
+
+.projects__description {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.projects__link {
+    font-weight: bold;
+    text-decoration: underline;
+}
+/* =====================================================
+   9. ACHIEVEMENTS
+===================================================== */
+
+.achievements {
+    background-color: white;
+}
+
+.achievements__list {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.achievements__card {
+    flex: 1;
+    padding: 2rem;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.achievements__title {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+}
+
+.achievements__text {
+    color: #555;
+}
+/* =====================================================
+   10. CONTACT
+===================================================== */
+
+.contact {
+    background-color: #eeeeee;
+}
+
+.contact__intro {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: #555;
+}
+
+.contact__form {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact__details,
+.contact__message {
+    flex: 1;
+    background-color: white;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+}
+
+.contact__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.contact__field:last-child {
+    margin-bottom: 0;
+}
+
+.contact__field label,
+.contact__message label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.contact__field input,
+.contact__message textarea {
+    width: 100%;
+    padding: 0.8rem;
+
+    border: 1px solid #aaa;
+    font: inherit;
+}
+
+.contact__message textarea {
+    resize: vertical;
+    margin-bottom: 1rem;
+}
+
+.contact__button {
+    padding: 0.8rem 1.4rem;
+    background-color: #111;
+    color: white;
+    border: 2px solid #111;
+    font: inherit;
+    cursor: pointer;
+}
+
+/* =====================================================
+   11. FOOTER
+===================================================== */
+.footer {
+    background-color: #111;
+    color: white;
+    padding: 1.5rem 1.25rem;
+}
+
+.footer__content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.footer__link {
+    font-size: 0.95rem;
+}
+
+.footer__copyright {
+    font-size: 0.9rem;
+}
+/* =====================================================
+   12. TABLET
+   768px and above
+===================================================== */
+@media (min-width: 768px) {
+    /* NAVBAR */
+    .navbar__container {
+        gap: 2rem;
+    }
+
+
+    /* HERO */
+    .hero {
+        flex-direction: row;
+        align-items: stretch;
+        padding: 90px 3rem 3rem;
+    }
+
+    .hero__content {
+        flex: 0 0 60%;
+        padding-right: 2rem;
+    }
+
+    .hero__image-container {
+        flex: 0 0 40%;
+    }
+    /* ABOUT */
+
+    .about__content {
+        flex-direction: row;
+    }
+
+    .about__info,
+    .about__skills {
+        flex: 1;
+    }
+
+    .skills {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    /* EXPERIENCE */
+
+    .experience__list {
+        flex-direction: row;
+    }
+    /* PROJECTS */
+    .projects__list {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .projects__card {
+        flex: 0 0 calc(50% - 0.75rem);
+    }
+
+    /* ACHIEVEMENTS */
+
+    .achievements__list {
+        flex-direction: row;
+    }
+
+    /* CONTACT */
+    .contact__form {
+        flex-direction: row;
+    }
+
+    .contact__details,
+    .contact__message {
+        flex: 1;
+    }
+
+}
+
+/* =====================================================
+   13. DESKTOP
+   1200px and above
+===================================================== */
+
+@media (min-width: 1200px) {
+    section {
+        padding: 6rem 2rem;
+    }
+
+    /* NAVBAR */
+
+    .navbar__container {
+        padding: 0;
+        gap: 2.5rem;
+    }
+    /* HERO */
+
+    .hero {
+        min-height: 100vh;
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .hero__content {
+        padding-right: 4rem;
+    }
+
+    .hero__image {
+        height: 600px;
+    }
+
+
+    /* ABOUT */
+
+    .skills {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    /* PROJECTS */
+    .projects__card {
+        flex: 1;
+    }
+    /* CONTACT */
+    .contact__form {
+        gap: 3rem;
+    }
+}
