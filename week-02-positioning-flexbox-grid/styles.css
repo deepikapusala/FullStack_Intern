@@ -49,7 +49,7 @@ body {
 .l-header, .l-sidebar, .l-content, .l-footer {
   padding: 16px;
 }
-
+ 
 .l-header {
   background: #2563eb;
   color: white;
@@ -88,7 +88,6 @@ body {
   float: right;
   width: 300px;
   height: 300px;
-  border: 1px solid red;
   object-fit: cover;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -99,67 +98,54 @@ body {
    outer wrapper = column flex (header, middle, footer)
    inner .flex-middle = row flex (sidebar, content)
    ===================================================== */
-.flex-layout {
+.flex-container {
+    border: 2px solid black;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-content: flex-end;/*main axis positioning*/
+    justify-content: space-evenly;
+    min-height: 150px;
+    align-items:stretch;
+
 }
 
-.flex-boxes {
-    display: flex;
-    gap: 10px;
+.flex-container > div {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+  /* flex:2; */
+  color: #fff;
+  height:100px;
+  width:100px;
+  font-size: 20px;
+  background: orangered;
 }
-
-.flex-boxes div {
-    flex: 1;
-    padding: 30px;
-    background: orange;
-    text-align: center;
-}
-
-.flex-layout header {
-    padding: 20px;
-    background: blue;
-    color: white;
-}
-
-.flex-layout footer {
-    padding: 20px;
-    background: darkgray;
-    color: white;
-}
-
+  /* .flex-container div {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 100px;
+} */
 /* =====================================================
    3. GRID LAYOUT
    one grid-template-areas call defines the whole shape
    ===================================================== */
-.grid-layout {
-    display: grid;
-    gap: 10px;
-}
 
 .grid-boxes {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    /* grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr; */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 4fr));
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-rows: 100px 200px;
+    grid-auto-rows:100px;
+    gap: 10px; 
 }
-
 .grid-boxes div {
     padding: 30px;
     background: orange;
     text-align: center;
-}
-
-.grid-layout header {
-    padding: 20px;
-    background: blue;
-    color: white;
-}
-
-.grid-layout footer {
-    padding: 20px;
-    background: darkgray;
-    color: white;
+    align-content:center;
 }
 
 /* =====================================================
@@ -228,6 +214,8 @@ body {
   position: fixed;
   bottom: 16px;
   right: 16px;
+  width:140px;
+  height:50px;
   background: #111827;
   color: white;
   padding: 10px;
@@ -268,9 +256,9 @@ body {
   z-index: 2;
 }
 
-/* =====================================================
+/* ===============================================================
    6. CARD GALLERY - responsive grid, no media queries
-   ===================================================== */
+   =============================================================== */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
